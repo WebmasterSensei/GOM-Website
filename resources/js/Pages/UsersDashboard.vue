@@ -108,9 +108,10 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
                         <div class="grid items-center gap-12 lg:grid-cols-2">
                             <div class="mt-12 lg:mt-0" style="z-index: 10">
                                 <h1
-                                    class="mt-0 mb-12 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl text-[hsl(218,81%,95%)] animate__animated animate__slideInLeft animate__slow">
-                                    God's Oracle <br /><span class="text-[hsl(218,81%,75%)]">Ministries</span>
+                                    class="mt-0 mb-12 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl text-[hsl(218,81%,95%)] animate__animated animate__slideInLeft animate__slow typewriter-text">
+                                    God's Oracle <br />
                                 </h1>
+                                <span class="mt-0 mb-12 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl text-yellow text-[hsl(218,81%,75%)] animate__animated animate__fadeInUp animate__slow">Ministries</span>
                                 <p
                                     class="opacity-70 text-[hsl(218,81%,85%)] animate__animated animate__zoomIn animate__slow">
                                     Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -318,7 +319,7 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 
 
 
-                    <p class="pb-10 p-6 pt-10">
+                    <p class="pb-10 p-6 pt-10 reveal">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem mollitia animi deleniti tempore!
                         Porro ipsam enim,
                         praesentium voluptates hic atque et vitae! Reiciendis, unde sit. Sunt ipsa impedit sed perspiciatis!
@@ -375,12 +376,12 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 
                     </div>
 
-                    <div class="flex justify-center reveal">
+                    <div class="flex justify-center">
                         <h1 class="text-2xl mb-10">
                             Previous Events
                         </h1>
                     </div>
-                    <div v-for="prev in prevEvent" :key="prev.id">
+                    <div class="reveal" v-for="prev in prevEvent" :key="prev.id" >
                           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-1 mb-4" >
                              <div class="p-4">
                                 <div class="overflow-y-auto" style="height: 330px;">
@@ -446,7 +447,7 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
                     </h1>
 
                   </div>
-                    <div v-for="newEve in newEvent" class="w-full shrink-0 grow-0 basis-auto md:px-6 lg:w-full mb-2" >
+                    <div  v-for="newEve in newEvent" class="w-full shrink-0 grow-0 basis-auto md:px-6 lg:w-full mb-2 reveal" >
                         <div class="mb-12 flex">
                         <div class="shrink-0">
                             <div class="rounded-md bg-[hsl(204,30%,20%)] p-4 shadow-lg dark:bg-[hsl(204,23%,30%)]">
@@ -1049,5 +1050,33 @@ ol.gradient-list>li+li {
     }
 
 }
+
+ .typewriter-text {
+            overflow: hidden; /* Hide overflow to create typing effect */
+            border-right: .15em solid orange; /* Cursor blinking effect */
+            white-space: nowrap; /* Keep text on a single line */
+            margin: 0 auto;
+            letter-spacing: .15em; /* Adjust letter spacing for a cleaner look */
+             animation: typing 5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 100%;
+            }
+        }
+
+        @keyframes blink-caret {
+            from,
+            to {
+                border-color: transparent;
+            }
+            50% {
+                border-color: orange;
+            }
+        }
 
 </style>
