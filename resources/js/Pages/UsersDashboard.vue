@@ -396,7 +396,7 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
                             </div>
 
                             <!-- Column 2 -->
-                            <div class="p-4" style="box-shadow: rgba(17, 17, 26, 0.1) 0px 0px 16px; border: 1px solid rgb(204, 204, 204); margin-bottom: 5px; padding: 30px; border-radius: 5px;">
+                            <div class="p-4" style="margin-bottom: 5px; padding: 30px; border-radius: 5px;">
                               <div style="display: flex; justify-content: space-between;">
                                 <h2 class="mb-0 animate-pulse" style="font-size: 20px; font-weight: 600;">{{ prev.title }}</h2>
                                 <h1 class="mb-0" style="font-size: 16px; font-weight: 600; color: rgb(110, 110, 110);">
