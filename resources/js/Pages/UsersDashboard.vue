@@ -400,6 +400,7 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
                               <div style="display: flex; justify-content: space-between;">
                                 <h2 class="mb-0 animate-pulse" style="font-size: 20px; font-weight: 600;">{{ prev.title }}</h2>
                                 <h1 class="mb-0" style="font-size: 16px; font-weight: 600; color: rgb(110, 110, 110);">
+                                
                                  {{ formattedDate(prev.date) }}
                                 </h1>
                               </div>
