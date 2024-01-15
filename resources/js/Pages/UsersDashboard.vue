@@ -103,8 +103,11 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 
       </div>
     </nav>
-                <div class="px-6 py-12 text-center md:px-12 lg:py-40 lg:text-left">
+                <div class="px-6 py-20 text-center md:px-5 lg:py-39 lg:text-left">
                     <div class="w-100 mx-auto text-neutral-800 sm:max-w-2xl md:max-w-3xl lg:max-w-5xl xl:max-w-7xl">
+                        <p class="mb-10 text-center" style="font-size: 21px; color: rgb(202, 202, 202);">
+                            {{ greetings }}
+                        </p>
                         <div class="grid items-center gap-12 lg:grid-cols-2">
                             <div class="mt-12 lg:mt-0" style="z-index: 10">
                                 <h1
@@ -112,13 +115,17 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
                                     God's Oracle <br />
                                 </h1>
                                 <span class="mt-0 mb-12 text-5xl font-bold tracking-tight md:text-6xl xl:text-7xl text-yellow text-[hsl(218,81%,75%)] animate__animated animate__fadeInUp animate__slow">Ministries</span>
-                                <p
-                                    class="opacity-70 text-[hsl(218,81%,85%)] animate__animated animate__zoomIn animate__slow">
-                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                                    Temporibus, expedita iusto veniam atque, magni tempora
-                                    mollitia dolorum consequatur nulla, neque debitis eos
-                                    reprehenderit quasi ab ipsum nisi dolorem modi. Quos?
+                                <p style="font-size: 18px; color: #F3F8FF; " class="mt-5">
+                                    <h1 style="letter-spacing: 1px;">Daily Verse</h1>
                                 </p>
+                                <p style="font-size: 16px; color: #F3F8FF;" class="mt-1">
+                                    <h1>{{ dverse.verse }}</h1>
+                                </p>
+                                <p
+                                    class="opacity-70 text-[hsl(218,81%,85%)] animate__animated animate__zoomIn animate__slow mt-4" style="font-size: 20px;">
+                                   {{ dverse.words }}
+                                </p>
+
                             </div>
 
 
@@ -203,7 +210,7 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
                 <!-- Jumbotron -->
 
 
-                <div class="flex items-center justify-center pb-20">
+                <div class="flex items-center justify-center pb-[200px]">
                     <button type="button" v-if="$page.props.auth.user"
                         class="rounded animate-pulse
                         border-2 border-neutral-50 px-[46px] 
@@ -563,22 +570,22 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
                                 </div>
                             </div>
                                <nav aria-label="Page navigation example" class="mt-10 mb-2 flex justify-center">
-            <ul class="list-style-none flex space-x-2">
-                <li v-for="page in paginationYt.links" :key="page.label">
-                    <a v-if="page.url" href="#" @click.prevent="fetchYtLinks(page.url)"
-                       class="relative block rounded bg-transparent px-3 py-1.5 text-sm transition-all duration-300 
-                              dark:text-black dark:hover:bg-neutral-700 dark:hover:text-black"
-                       :class="{ 'text-neutral-600 hover:bg-neutral-100': !page.active, 'font-bold bg-neutral-100': page.active }"
-                       v-html="page.label"
-                    ></a>
-                    <span v-else class="relative block rounded bg-transparent px-3 py-1.5 text-sm
-                              dark:text-black dark:hover:bg-neutral-700 dark:hover:text-black"
-                          :class="{ 'text-neutral-600': !page.active, 'font-bold': page.active }"
-                          v-html="page.label"
-                    ></span>
-                </li>
-            </ul>
-        </nav>
+                                <ul class="list-style-none flex space-x-2">
+                                    <li v-for="page in paginationYt.links" :key="page.label">
+                                        <a v-if="page.url" href="#" @click.prevent="fetchYtLinks(page.url)"
+                                        class="relative block rounded bg-transparent px-3 py-1.5 text-sm transition-all duration-300 
+                                                dark:text-black dark:hover:bg-neutral-700 dark:hover:text-black"
+                                        :class="{ 'text-neutral-600 hover:bg-neutral-100': !page.active, 'font-bold bg-neutral-100': page.active }"
+                                        v-html="page.label"
+                                        ></a>
+                                        <span v-else class="relative block rounded bg-transparent px-3 py-1.5 text-sm
+                                                dark:text-black dark:hover:bg-neutral-700 dark:hover:text-black"
+                                            :class="{ 'text-neutral-600': !page.active, 'font-bold': page.active }"
+                                            v-html="page.label"
+                                        ></span>
+                                    </li>
+                                </ul>
+                            </nav>
 
                         </div>
 
@@ -587,6 +594,11 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 
 
                 </div>
+
+            </section> 
+
+            <section class="container-app">
+                this is another one this is another section 
 
             </section>
 
@@ -615,6 +627,7 @@ export default {
             paginationYt: [],
             isActive: false,
             roles: [],
+            greetings: ''
 
         }
     },
@@ -628,7 +641,10 @@ export default {
         // window.addEventListener("scroll", this.reveal);
         // this.reveal()
         window.addEventListener('scroll', this.handleScroll);
-        this.fetchUserData()
+        this.fetchUserData();
+         this.updateGreeting();
+
+       setInterval(this.updateGreeting, 1000);
 
 
     },
@@ -638,9 +654,25 @@ export default {
     },
     props: {
         event: Array,
+        dverse: Array,
         // links: Array,
     },
     methods: {
+         updateGreeting() {
+
+      const currentHour = new Date().getHours();
+
+      if (currentHour < 12) {
+
+        this.greetings = 'Good Morning :)';
+
+      } else {
+
+        this.greetings = 'Good Afternoon :)';
+
+      }
+
+    },
          fetchUserData() {
       axios.get('/api/user-data')
         .then(response => {

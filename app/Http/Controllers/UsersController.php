@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\DailyVerse;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Event;
@@ -20,6 +21,10 @@ class UsersController extends Controller
         $firstEvent = Event::orderBy('created_at', 'desc')
             ->where('date', '>=', $currentDate)
             ->get();
+        $dverse = DailyVerse::orderBy('created_at', 'desc')->first();
+
+        // dd($dverse);
+
         $users = User::count();
 
         $event = Event::orderBy('created_at', 'desc')->first();
@@ -32,6 +37,7 @@ class UsersController extends Controller
             'past_events' => $past_events,
             'links' => $link,
             'counts' => $users,
+            'dverse' => $dverse,
         ]);
     }
 }

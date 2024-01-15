@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\EventsController;
+use App\Http\Controllers\DailyVerseController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,6 +38,8 @@ Route::get('/', [UsersController::class, 'index'])->name('/');
     Route::get('prev-event-getter' , [EventsController::class, 'getprevEvent'])->name('prev.getter');
     Route::get('new-event-getter' , [EventsController::class, 'getnewEvent'])->name('new.getter');
     Route::get('get_yt_links' , [EventsController::class, 'get_yt_links'])->name('get_yt_links');
+    Route::get('/d-verse' , [DailyVerseController::class, 'index'])->name('deverse');
+    Route::post('/d-verse/store' , [DailyVerseController::class, 'store'])->name('store.verse');
 
 Route::middleware('auth')->group(function () {
 

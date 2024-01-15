@@ -114,6 +114,13 @@ const showingNavigationDropdown = ref(false);
                                             <span class="mx-4 font-medium">Announcments</span>
                                         </a>
                                     </li>
+                                    <li>
+                                       <a class="flex items-center px-3 py-1 mt-1 text-gray-600 transition-colors duration-300 transform rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-gray-200 hover:text-gray-700"
+                                            href="/d-verse">
+                                           <i class="fas fa-calendar"></i>
+                                            <span class="mx-4 font-medium">Daily Verse</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </li>
                             <!-- Add more nested items as needed -->
