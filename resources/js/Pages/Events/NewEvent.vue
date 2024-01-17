@@ -10,6 +10,9 @@ import { Head } from '@inertiajs/vue3';
 
 
         <div class="py-12">
+             <div class="header text-2xl flex mb-10">
+          <i class="fas fa-tags"></i>&nbsp; <h1>New Events</h1>
+        </div>
             <div class="mx-auto sm:px-6 lg:px-8">
                 <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                     <div>

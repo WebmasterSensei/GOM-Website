@@ -8,6 +8,9 @@ import { Head } from '@inertiajs/vue3';
     <Head title="youtube links" />
     <Adminlayout>
       <div class="py-12">
+         <div class="header text-2xl flex">
+          <i class="fas fa-play"></i>&nbsp; <h1>Links</h1>
+        </div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div class="mb-5 flex justify-end">
             <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" v-on:click="modalOpen">

@@ -40,4 +40,13 @@ class UsersController extends Controller
             'dverse' => $dverse,
         ]);
     }
+    
+    public function users()
+    {
+        $users = User::orderBy('created_at', 'desc')->get();
+
+        return Inertia::render('Users/Index', [
+            'users' => $users,
+        ]);
+    }
 }

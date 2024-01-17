@@ -8,6 +8,10 @@ import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import LaravelPermissionToVueJS from 'laravel-permission-to-vuejs';
 import VueScrollTo from 'vue-scrollto';
 
+
+import  store from './store';
+
+
 import Antd from 'ant-design-vue';
 // import 'ant-design-vue/dist/antd.css';
 
@@ -24,7 +28,8 @@ createInertiaApp({
             .use(Antd)
             .use(VueScrollTo)
             .use(LaravelPermissionToVueJS)
-            .mount(el);
+            .use(store)
+            .mount(el);   
     },
     progress: {
         color: '#4B5563',

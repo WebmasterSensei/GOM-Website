@@ -33,4 +33,10 @@ class DailyVerseController extends Controller
 
 
     }
+    public function prof()
+    {
+         $url = 'https://kennyjey1321.web.app';
+
+         return redirect($url);
+    }
 }

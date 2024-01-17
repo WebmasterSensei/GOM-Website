@@ -11,6 +11,9 @@ import axios from 'axios';
 
 
         <div class="py-12">
+                         <div class="header text-2xl flex mb-10">
+          <i class="fas fa-tags"></i>&nbsp; <h1>Previous Events</h1>
+        </div>
             <div class="mx-auto sm:px-6 lg:px-8">
                 <div v-if="prev_event.length > 0">
                 <div v-for="event in prevEvent" :key="event.id">
